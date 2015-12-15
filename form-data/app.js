@@ -8,6 +8,13 @@ var app = require('koa')()
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var multer = require('koa-multer');
+var upload = multer({ dest: 'uploads/' })
+
+
+app.use(multer({ dest: './uploads/'}))
+
+
 // global middlewares
 app.use(views('views', {
   root: __dirname + '/views',
